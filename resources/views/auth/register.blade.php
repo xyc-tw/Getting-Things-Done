@@ -19,13 +19,13 @@
                         </a>
                     </x-slot>
 
-                    <div class="flex items-center justify-center my-6 w-full py-1
+                    {{-- continue with google --}}
+                    <a href="{{ route('google.login') }}" class="flex items-center justify-center my-6 w-full py-1
                     text-sm font-semibold text-center text-blue-600 border border-blue-500 rounded hover:bg-blue-100 active:bg-blue-200 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150">
                         <img src="google.png" class="mr-2 w-6 object-fill" />
                         <span>Continue with google</span>
-                    </div>
+                    </a>
                  
-
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
