@@ -39,14 +39,37 @@ class GoogleController extends Controller
                 
             }else{
 
-                 $newUser = User::create([
+                $newUser = User::create([
                     'google_id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
                     'password' => Hash::make($user->name.'@'.$user->id)
                 ]);
                 
+                $newUser->projects()->create([
+                    'name' => "stuffs",
+                    'description' => ""
+                ]);
+                $newUser->projects()->create([
+                    'name' => "maybe",
+                    'description' => ""
+                ]);
+                $newUser->projects()->create([
+                    'name' => "lessthan2",
+                    'description' => ""
+                ]);
+                $newUser->projects()->create([
+                    'name' => "defer",
+                    'description' => ""
+                ]);
+                $newUser->projects()->create([
+                    'name' => "delegate",
+                    'description' => ""
+                ]);
+
                 Auth::login($newUser);;
+
+
             }
 
            return redirect()->route('dashboard');

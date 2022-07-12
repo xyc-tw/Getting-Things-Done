@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -44,10 +45,37 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        
+        
+        
         event(new Registered($user));
-
+        
+       
+        $user->projects()->create([
+            'name' => "stuffs",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "maybe",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "lessthan2",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "defer",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "delegate",
+            'description' => ""
+        ]);
+        
         Auth::login($user);
+
+     
+        
 
         return redirect(RouteServiceProvider::HOME);
     }

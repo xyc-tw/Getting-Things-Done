@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Daughter of Fortune";
+    src: url("../../public/fonts/PermanentMarker-Regular.ttf");
+}
+
+.card {
+    height: calc((100vh - 80px - 1.5rem) / 2);
+}
+.card::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+.firststep {
+    height: calc(100vh - 80px - 1rem);
+}
+.firststep::after {
+    background-size: 100% auto;
+    background-position: 50% 80%;
+    background-image: url("../../public/images/firststep.png");
+}
+.someday::after {
+    background-size: auto 80%;
+    background-position: 50% 50%;
+    background-image: url("../../public/images/someday.png");
+}
+.lessthan2::after {
+    background-size: auto 100%;
+    background-position: 50% 50%;
+    background-image: url("../../public/images/lessthan2.png");
+}
+.defer::after {
+    background-size: 100% auto;
+    background-position: 50% 50%;
+    background-image: url("../../public/images/defer.png");
+}
+.delegate::after {
+    background-size: 100% auto;
+    background-position: 50% 50%;
+    background-image: url("../../public/images/delegate.png");
+}
