@@ -1,4 +1,5 @@
 @props(['task' => $task])
+
 <div class="grid grid-col-2 w-full justify-between items-start pb-1 gap-1" style="grid-template-columns: 1fr 20px;">
     
     <form action="{{ route('task.check', ['id' => $task->id]) }}" method="POST" class="flex text-sm">

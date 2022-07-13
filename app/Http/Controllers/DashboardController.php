@@ -32,6 +32,8 @@ class DashboardController extends Controller
         // dd(DB::table('tasks')->where('user_id', '=', $this->user->id)->get());
         $tasks = DB::table('tasks')->where('user_id', '=', $this->user->id)->get();
         $projects = DB::table('projects')->where('user_id', '=', $this->user->id)->get();
+
+        dd(DB::table('projects')->where('user_id', '=', $this->user->id)->where('name', '=', "stuffs")->first()->tasks()->toArray());
     
         return view('dashboard', [
             'tasks' => $tasks,

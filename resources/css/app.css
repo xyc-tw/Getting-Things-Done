@@ -21,15 +21,15 @@
     background-repeat: no-repeat;
     opacity: 0.5;
 }
-.firststep {
+.stuffs {
     height: calc(100vh - 80px - 1rem);
 }
-.firststep::after {
+.stuffs::after {
     background-size: 100% auto;
     background-position: 50% 80%;
     background-image: url("../../public/images/firststep.png");
 }
-.someday::after {
+.maybe::after {
     background-size: auto 80%;
     background-position: 50% 50%;
     background-image: url("../../public/images/someday.png");
