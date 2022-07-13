@@ -33,11 +33,21 @@
                                     @auth
                                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                                     @else
-                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                                        <div class="flex">
+                                            <form action="{{ route('guest') }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="text-sm text-gray-700 dark:text-gray-500 underline">Try as Guest</button>
+                                            </form>
+                                            {{-- <a href="{{ route('guest') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Try as Guest</a> --}}
+                                        
+                                            <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                                        @if (Route::has('register'))
+                                            {{-- @if (Route::has('register')) --}}
                                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                        @endif
+                                            {{-- @endif --}}
+
+                                        </div>
+                                       
                                     @endauth
                                 </div>
                                @endif
@@ -96,7 +106,7 @@
                         <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <img src="/images/lessthan2.png" width="35%">
                             <div class="flex-col pl-12">
-                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">Do it if less than 2 min</h2>
+                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">Do it if if it takes less than 2 min</h2>
                                 <p>If the item will take less than 2 minutes, complete it right away.</p>
                             </div>
                         </div>
@@ -120,7 +130,7 @@
                         {{-- Project --}}
                          <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 pb-16 ">
                             <div class="flex-col pr-12">
-                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">Project</h2>
+                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">Make it to a project</h2>
                                 <p>If a task requires more than one step, create a project to 
                                     house all of the items associated with it and identify the 
                                     one next action you can take to move the project forward.</p>

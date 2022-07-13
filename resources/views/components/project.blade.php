@@ -1,11 +1,14 @@
 @props(['project' => $project])
 
-<div class=" {{ ($project->name == 'stuffs' ? 'row-span-2': '') }} p-6 border border-gray-100 rounded-xl bg-gray-50 flex-col p-6 relative card {{ $project->name }} overflow-y-hidden">
+<div class=" {{ ($project->name == 'stuffs' ? 'row-span-2': '') }} p-6 border border-gray-100 rounded-xl flex-col p-6 relative card {{ $project->name }}">
     <div class="relative z-10">
         
         {{-- title --}}
-        <div class="pb-2">
-            <h2 class="font-bnb text-2xl text-blue-600">{{ $project->name }}</h2>                
+        <div class="pb-2 w-full flex justify-between">
+            <h2 class="font-bnb text-2xl text-blue-600">{{ $project->name }}</h2> 
+            @if ($project->name != "stuffs")
+                <img class="mt-1" src="icons/add.svg" alt="add" width="27px">
+            @endif               
         </div>
         
         {{-- add task only in first step project--}}
@@ -23,8 +26,6 @@
                 @foreach ($tasks as $task )
                     <x-task :task="$task"/>
                 @endforeach
-            @else
-                <p>Write the things in your mind down!</p>
             @endif
         </div>
        

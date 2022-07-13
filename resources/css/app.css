@@ -9,6 +9,15 @@
 
 .card {
     height: calc((100vh - 80px - 1.5rem) / 2);
+    background-color: rgb(213, 235, 245);
+}
+
+.stuffs,
+.lessthan2,
+.maybe,
+.defer,
+.delegate {
+    background-color: rgba(249, 250, 251, 1);
 }
 .card::after {
     content: "";
@@ -19,7 +28,10 @@
     bottom: 0;
     right: 0;
     background-repeat: no-repeat;
-    opacity: 0.5;
+    opacity: 0.3;
+    background-size: auto 100%;
+    background-position: 50% 80%;
+    background-image: url("../../public/images/project.png");
 }
 .stuffs {
     height: calc(100vh - 80px - 1rem);

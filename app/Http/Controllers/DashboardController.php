@@ -20,7 +20,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-        // this is getting executed later after the other middleware has ran
+        // this is getting executed later after the other middleware has ran?
         $this->user = Auth::user();
 
         return $next($request);
@@ -29,14 +29,19 @@ class DashboardController extends Controller
     
     public function index()
     {
-        // dd(DB::table('tasks')->where('user_id', '=', $this->user->id)->get());
-        $tasks = DB::table('tasks')->where('user_id', '=', $this->user->id)->get();
-        $projects = DB::table('projects')->where('user_id', '=', $this->user->id)->get();
-
-        dd(DB::table('projects')->where('user_id', '=', $this->user->id)->where('name', '=', "stuffs")->first()->tasks()->toArray());
+        // $task = DB::table('tasks')->where('user_id', '=', $this->user->id)->first();
+        // $task = Task::where('user_id', $this->user->id)->first();
+        // $projects = DB::table('projects')->where('user_id', '=', $this->user->id)->get();
+        $projects = Project::where('user_id', $this->user->id)->get();
+        
+        // $p = Project::where('user_id', $this->user->id)->where('name', "stuffs")->first();
+    //     $tasks = $projects->first()->tasks;
+    //    foreach ($tasks as $task ) {
+    //      dd($task->project()->first()->name);
+    //    }
+                   
     
         return view('dashboard', [
-            'tasks' => $tasks,
             'projects' => $projects
         ]);
 

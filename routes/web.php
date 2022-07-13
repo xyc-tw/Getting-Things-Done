@@ -28,7 +28,12 @@ Route::post('/dashboard', [DashboardController::class, 'add'])->name('add');
 
 Route::post('/dashboard/{id}/check', [TaskController::class, 'check'])->name('task.check');
 Route::post('/dashboard/{id}/delete', [TaskController::class, 'destroy'])->name('task.delete');
+Route::post('/dashboard/{id}/stuffs', [TaskController::class, 'stuffs'])->name('task.stuffs');
+Route::post('/dashboard/{id}/maybe', [TaskController::class, 'maybe'])->name('task.maybe');
+Route::post('/dashboard/{id}/lessthan2', [TaskController::class, 'lessthan2'])->name('task.lessthan2');
 Route::post('/dashboard/{id}/defer', [TaskController::class, 'defer'])->name('task.defer');
+Route::post('/dashboard/{id}/delegate', [TaskController::class, 'delegate'])->name('task.delegate');
+Route::post('/dashboard/{id}/makeproject', [TaskController::class, 'makeproject'])->name('task.makeproject');
 
 
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');

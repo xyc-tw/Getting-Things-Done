@@ -46,10 +46,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
-        
-        
-        event(new Registered($user));
-        
+        event(new Registered($user)); 
        
         $user->projects()->create([
             'name' => "stuffs",
@@ -78,6 +75,42 @@ class RegisteredUserController extends Controller
         
         // return redirect()->route('dashboard', ['user' => $user]);
         // return redirect(RouteServiceProvider::HOME, ['user' => $user]);
+        return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function guest()
+    {
+        $user = User::create([
+            'name' => 'guest',
+            'email' => 'gettingthingsdone@example.com',
+            'password' => 'password',
+        ]);
+        
+        event(new Registered($user)); 
+       
+        $user->projects()->create([
+            'name' => "stuffs",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "maybe",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "lessthan2",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "defer",
+            'description' => ""
+        ]);
+        $user->projects()->create([
+            'name' => "delegate",
+            'description' => ""
+        ]);
+        
+        Auth::login($user);
+
         return redirect(RouteServiceProvider::HOME);
     }
 }
