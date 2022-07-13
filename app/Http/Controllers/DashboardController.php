@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\User;
 use App\Mail\PostLiked;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
@@ -15,17 +17,28 @@ class DashboardController extends Controller
     // {
     //     $this->middleware(['auth'])->only(['index']);;
     // }
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+        // this is getting executed later after the other middleware has ran
+        $this->user = Auth::user();
 
+        return $next($request);
+        });
+    }
     
     public function index()
     {
-        $tasks = DB::select('select * from tasks');
-       
+        // dd(DB::table('tasks')->where('user_id', '=', $this->user->id)->get());
+        $tasks = DB::table('tasks')->where('user_id', '=', $this->user->id)->get();
+        $projects = DB::table('projects')->where('user_id', '=', $this->user->id)->get();
+    
         return view('dashboard', [
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'projects' => $projects
         ]);
 
-        return view('dashboard');
+        return view('/dashboard');
     }
 
     public function add(Request $request) 

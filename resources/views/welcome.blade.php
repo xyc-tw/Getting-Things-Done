@@ -130,7 +130,7 @@
 
                         {{-- Clarify --}}
                         <div class="flex-col w-full lg:w-3/4 pt-10 pb-20 mx-auto text-center">
-                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">And then ... Organize, Reflect, and Engage!</h2>
+                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">And thenOrganize, Reflect, and Engage!</h2>
                         </div>
 
                     </div>

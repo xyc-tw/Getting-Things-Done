@@ -76,7 +76,8 @@ class RegisteredUserController extends Controller
 
      
         
-
+        // return redirect()->route('dashboard', ['user' => $user]);
+        // return redirect(RouteServiceProvider::HOME, ['user' => $user]);
         return redirect(RouteServiceProvider::HOME);
     }
 }

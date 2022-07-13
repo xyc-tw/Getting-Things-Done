@@ -15,17 +15,22 @@
                     </form>
                     {{-- content --}}
                     <div class="m-2 mt-4">
-                    @if(count($tasks))
+                    @if($tasks->count())
                         @foreach ($tasks as $task )
                             <x-task :task="$task"/>
                         @endforeach
                         {{-- {{ $posts->links() }} --}}
                     @else
-                        <p>There are no posts</p>
+                        <p>Write the things in your mind down!</p>
                     @endif
                     </div>
                 </div>
             </div>
+
+            {{-- @foreach ($projects as $project )
+                <x-project :project="$project"/>
+            @endforeach --}}
+
             <div class="p-6 border border-gray-100 rounded-xl bg-gray-50 flex-col sm:space-x-8 p-6 relative card someday">
                 <div class="relative z-10">
                     <h2 class="font-bnb pb-2 text-2xl text-blue-600 border-b border-gray-300 ">-> Someday maybe</h2>
