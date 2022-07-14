@@ -15,9 +15,10 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+            {{-- navibar --}}
+            <nav x-data="{ open: false }" class="bg-white border-b border-gray-100  shadow-sm  ">
                 <!-- Primary Navigation Menu -->
-                <div class="shadow-sm container m-auto px-6 md:px-12 xl:px-6 ">
+                <div class="container m-auto px-6 md:px-12 xl:px-6 ">
                     <div class="flex justify-between items-center h-20">
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
@@ -25,32 +26,27 @@
                                 <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                             </a>
                         </div>
-
                         <!-- Login & Register -->
                         <div  class="shrink-0 flex items-center">
-                                @if (Route::has('login'))
-                                <div class="hidden p-2 sm:block">
-                                    @auth
-                                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                                    @else
-                                        <div class="flex">
-                                            <form action="{{ route('guest') }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="text-sm text-gray-700 dark:text-gray-500 underline">Try as Guest</button>
-                                            </form>
-                                            {{-- <a href="{{ route('guest') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Try as Guest</a> --}}
-                                        
-                                            <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                            <div class="hidden p-2 sm:block">
+                                {{-- for loged in user --}}
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                {{-- for unloged in user --}}
+                                @else
+                                    <div class="flex">
+                                        <form action="{{ route('guest') }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="text-sm text-gray-700 dark:text-gray-500 underline">Try as Guest</button>
+                                        </form>
+                                    
+                                        <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                                            {{-- @if (Route::has('register')) --}}
-                                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                            {{-- @endif --}}
+                                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
 
-                                        </div>
-                                       
-                                    @endauth
-                                </div>
-                               @endif
+                                    </div>
+                                @endauth
+                            </div>
                         </div> 
                     </div>
                 </div>
@@ -58,6 +54,7 @@
             <main>
                 <div class="container m-auto px-6 md:px-12 xl:px-6 text-gray-900 text-base">
                     <div class="min-h-screen flex-col items-center justify-center">
+
                         {{-- introduction --}}
                         <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <img src="/images/bookcover.png" width="45%">
@@ -67,6 +64,7 @@
                                 The GTD method rests on the idea of moving all items of interest, relevant information, issues, tasks and projects out of one's mind by recording them externally and then breaking them into actionable work items with known time limits. This allows one's attention to focus on taking action on each task listed in an external record, instead of recalling them intuitively.</p>
                             </div>
                         </div>
+
                         {{-- workflow --}}
                          <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <div class="flex-col pr-12">
@@ -77,6 +75,7 @@
                             </div>
                             <img src="/images/workflow.jpeg" class="rounded-3xl  " width="45%">
                         </div>
+
                         {{-- first Step --}}
                         <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <img src="/images/firststep.png" width="45%">
@@ -102,14 +101,16 @@
                             </div>
                             <img src="/images/someday.png" class="rounded-3xl  " width="35%">
                         </div>
+
                         {{-- < 2 min --}}
                         <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <img src="/images/lessthan2.png" width="35%">
                             <div class="flex-col pl-12">
-                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">Do it if if it takes less than 2 min</h2>
+                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">Do it if it takes less than 2 min</h2>
                                 <p>If the item will take less than 2 minutes, complete it right away.</p>
                             </div>
                         </div>
+
                         {{-- Defer --}}
                          <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <div class="flex-col pr-12">
@@ -119,6 +120,7 @@
                             </div>
                             <img src="/images/defer-1.png" class="rounded-3xl  " width="45%">
                         </div>
+
                         {{-- delegate --}}
                         <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 ">
                             <img src="/images/delegate-1.png" width="45%">
@@ -127,6 +129,7 @@
                                 <p>If it can be delegated, assign the task to someone else.</p>
                             </div>
                         </div>
+
                         {{-- Project --}}
                          <div class="flex w-full lg:w-3/4 mx-auto items-center justify-center pt-10 pb-16 ">
                             <div class="flex-col pr-12">
@@ -138,9 +141,9 @@
                             <img src="/images/project.png" class="rounded-3xl  " width="35%">
                         </div>
 
-                        {{-- Clarify --}}
+                        {{-- Next --}}
                         <div class="flex-col w-full lg:w-3/4 pt-10 pb-20 mx-auto text-center">
-                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">And thenOrganize, Reflect, and Engage!</h2>
+                                <h2 class="font-bnb pb-2 text-2xl text-blue-600">And then... Organize, Reflect, and Engage!</h2>
                         </div>
 
                     </div>

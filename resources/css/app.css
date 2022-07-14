@@ -65,3 +65,13 @@
 input[type="checkbox"]:checked + p {
     text-decoration-line: line-through;
 }
+#addtask-input {
+    display: none;
+}
+#addtask-field:hover {
+    cursor: pointer;
+}
+
+#addtask-field:hover #addtask-input {
+    display: block;
+}

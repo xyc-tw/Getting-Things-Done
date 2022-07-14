@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserTaskController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\GoogleController;
@@ -34,6 +35,9 @@ Route::post('/dashboard/{id}/lessthan2', [TaskController::class, 'lessthan2'])->
 Route::post('/dashboard/{id}/defer', [TaskController::class, 'defer'])->name('task.defer');
 Route::post('/dashboard/{id}/delegate', [TaskController::class, 'delegate'])->name('task.delegate');
 Route::post('/dashboard/{id}/makeproject', [TaskController::class, 'makeproject'])->name('task.makeproject');
+Route::post('/dashboard/{id}/edit', [TaskController::class, 'edit'])->name('task.edit');
+Route::post('/dashboard/{id}/addtask', [ProjectController::class, 'addtask'])->name('project.addtask');
+Route::post('/dashboard/{id}/deleteproject', [ProjectController::class, 'destroy'])->name('project.delete');
 
 
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');

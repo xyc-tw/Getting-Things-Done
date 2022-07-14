@@ -8,16 +8,29 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
-    public function show(Project $project)
+    public function addtask(Request $request, $id)
     {
-        // $tasks = DB::table('tasks')->where('user_id', '=', $this->user->id)->get();
-        // $projects = DB::table('projects')->where('user_id', '=', $this->user->id)->get();
-    
-        // return view('dashboard', [
-        //     'tasks' => $tasks,
-        //     'projects' => $projects
-        // ]);
+        if($request->remark){
+            $request->user()->tasks()->create([
+            'content' => $request->task,
+            'remark' => $request->remark,
+            'project_id' => $id
+        ]);
+        }else{
+            $request->user()->tasks()->create([
+            'content' => $request->task,
+            'project_id' => $id
+            ]);
+        }
+        
+       
+        return back();
+    }
 
-        // return view('/dashboard');
+    public function destroy($id)
+    {
+        $project = DB::table('projects')->where('id',"=", $id);
+        $project->delete();
+        return back();
     }
 }

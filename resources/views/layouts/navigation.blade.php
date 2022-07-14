@@ -1,6 +1,6 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 ">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow-sm  ">
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto px-4 shadow-sm container m-auto px-6 md:px-12 xl:px-6">
+    <div class="container m-auto  px-6 md:px-12 xl:px-6">
             <div class="flex justify-between h-20">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -9,7 +9,7 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                <!-- Navigation mode -->
                 {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -35,7 +35,6 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
