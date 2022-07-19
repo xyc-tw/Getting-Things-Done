@@ -1,6 +1,6 @@
 @props(['task' => $task])
 
-<div class="grid grid-col-2 w-full justify-between items-start pb-1 gap-1" style="grid-template-columns: 1fr 20px;">
+<div class="grid grid-col-2 w-full justify-between items-start pb-1 gap-1 " style="grid-template-columns: 1fr 20px;">
     
     <form action="{{ route('task.check', ['id' => $task->id]) }}" method="POST" class="text-sm items-start">
         @csrf
@@ -23,7 +23,7 @@
     <x-dropdown adivgn="right" width="48">
         <x-slot name="trigger">
             <button class="flex items-center">
-                <div class="ml-1 mt-1">
+                <div class="mr-1 mt-1">
                     <img src="icons/options.svg" alt="options">
                 </div>
             </button>

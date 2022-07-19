@@ -8,7 +8,8 @@
 }
 
 .card {
-    height: calc((100vh - 80px - 1.5rem) / 2);
+    max-height: calc((100vh - 80px - 1.5rem) / 2);
+    min-height: 300px;
     background-color: rgb(213, 235, 245);
 }
 
@@ -34,7 +35,8 @@
     background-image: url("../../public/images/project.png");
 }
 .stuffs {
-    height: calc(100vh - 80px - 1rem);
+    max-height: calc(100vh - 80px - 1rem);
+    min-height: 600px;
 }
 .stuffs::after {
     background-size: 100% auto;

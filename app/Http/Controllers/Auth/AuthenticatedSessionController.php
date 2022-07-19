@@ -43,7 +43,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
-        // dd($request->user()->name);
         if($request->user()->name == "guest"){
             $request->user()->delete();
         }

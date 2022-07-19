@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
-use App\Mail\PostLiked;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +34,9 @@ class DashboardController extends Controller
 
     public function add(Request $request) 
     {
+        // dd("controller called");
+
+
         $this->validate($request, [
             'content' => 'required'
         ]);
@@ -45,6 +47,13 @@ class DashboardController extends Controller
             'project_id' => $projectId
         ]);
         
+        // return response()->json(
+        //     [
+        //         'success' => true,
+        //         'message' => 'Data inserted successfully'
+        //     ]
+        // );
         return back();
     }
 }
+
